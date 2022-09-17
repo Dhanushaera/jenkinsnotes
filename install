@@ -1,0 +1,14 @@
+  sudo yum -y install java-11-openjdk-devel
+  java --version
+  sudo vi /etc/profile.d/java.sh
+  source /etc/profile.d/java.sh
+  echo $JAVA_HOME
+  env
+  sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+  sudo yum -y install wget
+  sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+  sudo yum -y install jenkins
+  sudo systemctl start jenkins
+  sudo systemctl status jenkins
+  sudo firewall-cmd --add-port=8080/tcp --permanent
+  cat /var/lib/jenkins/secrets/initialAdminPassword
